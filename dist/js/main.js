@@ -12,12 +12,23 @@ console.log('Hello Console!');
 * clientid
 fbd20b88d2ab49b7acc2f9732a03e525
 
+TODO
+1. nastylovat
+2. pridat refresh scriptu.
+
 ***********************/
 
 var api = 'https://api.instagram.com/v1/';
 var clientId = 'fbd20b88d2ab49b7acc2f9732a03e525';
 
-console.log('56');
+var column = document.getElementById('column');
+var size = window.innerHeight + 'px';
+
+var a = 0;
+var b = 0;
+
+column.style.width = window.innerWidth - window.innerHeight + 'px';
+
 
 /*var getPhotos = function (callback) {
   var xhr = new XMLHttpRequest();
@@ -41,17 +52,50 @@ getPhotos( function(photos) {
   });
 */
 
+var zobrazDiv = function () {
+
+
+  document.getElementById(b).style.opacity = 1;
+  b = b + 1;
+  setTimeout( zobrazDiv, 2000);
+
+}
 
 // Get an Instagram API client.
 var instagram = new Instagram(clientId);
 
-// Get tagged media
-instagram.getTaggedImages( function(images) {
 
-  for (var i = 0, len = images.length; i < len; i++) {
-    var img = document.createElement('img');
-    img.src = images[i].imageUrl;
-    document.body.appendChild(img);
+// Get tagged media
+window.onload = function () {
+  var getTaggedPhotos = function() {
+    instagram.getTaggedImages( function(images) {
+
+      for (var i = 0, len = images.length; i < len; i++) {
+        var div = document.createElement('div');
+        div.style.backgroundImage = 'url(' + images[i].imageUrl + ')';
+        div.className = 'photo';
+        div.style.width = size;
+        div.style.height = size;
+        div.id = a;
+        a = a + 1;
+        document.body.appendChild(div);
+      }
+      setTimeout( zobrazDiv, 0);
+      setTimeout( loadPhotosAgain, 10000)
+
+
+    }, true);
+  };
+
+
+  var loadPhotosAgain = function () {
+    console.log('loading photos');
+    getTaggedPhotos();
+
   }
 
-}, true);
+  getTaggedPhotos();
+
+
+
+};

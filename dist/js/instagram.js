@@ -295,7 +295,7 @@ Instagram.prototype.getTopImages = function (callback, opt_preload) {
 };
 
 Instagram.prototype.getTaggedImages = function (callback, opt_preload) {
-  this.mediaRequest_('/tags/brno/media/recent',
+  this.mediaRequest_('/tags/buh4/media/recent',
       callback,
       !!opt_preload);
 };
