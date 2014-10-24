@@ -16,13 +16,14 @@ a {
   background-size: cover;
   position: absolute;
   opacity: 0;
+  -webkit-transition: all .4s ease; -moz-transition: all .4s ease; -ms-transition: all .4s ease; -o-transition: all .4s ease; transition: all .4s ease;
 }
 
 #column {
   float: right;
   text-align: center;
   color: #fff;
-  padding-top: 300px;
+  padding-top: 150px;
 }
 
 #logo {
@@ -37,4 +38,5 @@ a {
   font-size: 60px;
   padding-top: 150px;
   color: #2D9BD3;
+  letter-spacing: .05em;
 }

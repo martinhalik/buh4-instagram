@@ -57,7 +57,7 @@ var zobrazDiv = function () {
 
   document.getElementById(b).style.opacity = 1;
   b = b + 1;
-  setTimeout( zobrazDiv, 2000);
+  setTimeout( zobrazDiv, 2500);
 
 }
 
@@ -80,7 +80,11 @@ window.onload = function () {
         a = a + 1;
         document.body.appendChild(div);
       }
-      setTimeout( zobrazDiv, 0);
+
+      if (b == 0) {
+        setTimeout( zobrazDiv, 0);
+      }
+
       setTimeout( loadPhotosAgain, 10000)
 
 
