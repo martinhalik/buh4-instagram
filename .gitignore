@@ -1,0 +1,10 @@
+!.gitignore
+!.htaccess
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Mac
+.DS_Store
+.supported
